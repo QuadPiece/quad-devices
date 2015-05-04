@@ -4,88 +4,59 @@ error_reporting(-1);
 ini_set('display_errors', 'On');
 
 // ALL THE SERVERS
-$servers = array (
-	array (
-		"name" => "QuadFile",
-		"type" => "Virtual Machine (RamNode)",
-		"usage" => "Main web server (Not actually QuadFile anymore)",
-		"cpu" => "2 vCores",
-		"ram" => "256 MB",
-		"storage" => "120 GB",
-        "os" => "Ubuntu 14.04",
-		"bandwidth" => "Pay-as-you-go"
-		),
-	array (
-		"name" => "lolicon",
-		"type" => "Virtual Machine (RamNode)",
-		"usage" => "Development environment",
-		"cpu" => "1 vCore",
-		"ram" => "128MB",
-		"storage" => "80 GB",
-        "os" => "Ubuntu 14.04",
-		"bandwidth" => "1 TB"
-		),
-	array (
-		"name" => "install",
-		"type" => "Virtual Machine (Vultr)",
-		"usage" => "Seedbox / Bittorrent Sync",
-		"cpu" => "1 vCore",
-		"ram" => "1 GB",
-		"storage" => "320 GB",
-        "os" => "Ubuntu 12.04 LTS",
-		"bandwidth" => "2 TB"
-		),
-	array (
-		"name" => "LB-us1",
-		"type" => "Virtual Machine (DigitalOcean)",
-		"usage" => "Load balancer for openings.moe",
-		"cpu" => "1 vCore",
-		"ram" => "512 MB",
-		"storage" => "20 GB SSD",
-        "os" => "Ubuntu 14.04 LTS",
-		"bandwidth" => "1 TB"
-		),
-	array (
-		"name" => "LB-eu1",
-		"type" => "Virtual Machine (DigitalOcean)",
-		"usage" => "Load balancer for openings.moe",
-		"cpu" => "1 vCore",
-		"ram" => "512 MB",
-		"storage" => "20 GB SSD",
-        "os" => "Ubuntu 14.04 LTS",
-		"bandwidth" => "1 TB"
-		),
-	array (
-		"name" => "AO-main",
-		"type" => "Virtual Machine (DigitalOcean)",
-		"usage" => "openings.moe",
-		"cpu" => "1 vCore",
-		"ram" => "1 GB",
-		"storage" => "30 GB SSD",
-        "os" => "Ubuntu 14.04 LTS",
-		"bandwidth" => "2 TB"
-		),
-	array (
-		"name" => "spice",
-		"type" => "Physical machine",
-		"usage" => "Unused, former test server",
-		"cpu" => "1 Core (Hyperthreaded)",
-		"ram" => "2 GB",
-		"storage" => "16 GB SSD + 80 GB HDD",
-        "os" => "Arch Linux",
-		"bandwidth" => "No cap"
-		),
-	array (
-		"name" => "win2k",
-		"type" => "Physical machine",
-		"usage" => "Unused, former storage server",
-		"cpu" => "1 Core",
-		"ram" => "128 MB",
-		"storage" => "80 GB HDD",
-        "os" => "None",
-		"bandwidth" => "No cap"
-		),
-	);
+//
+//
+//
+
+
+class computer
+{
+
+    public $name = "";
+    public $type = "";
+    public $usage = "";
+    public $cpu = "";
+    public $ram = "";
+    public $storage = "";
+    public $os = "";
+    public $bandwidth = "";
+
+    public function __construct($_name,$_type,$_usage,$_cpu,$_ram,$_storage,$_os,$_bandwidth)
+    {
+        $this->name = $_name;
+        $this->type = $_type;
+        $this->usage =$_usage;
+        $this->cpu = $_cpu;
+        $this->ram = $_ram;
+        $this->storage = $_storage;
+        $this->os = $_os;
+        $this->bandwidth = $_bandwidth;
+   
+    }
+}
+
+
+class server extends computer //We don't actually need to have anything in here since it inherites. It nust makes naming nicer.
+{
+}
+
+
+$servers = array(); //Define the list
+
+//add all the servers
+
+array_push($servers, new server("QuadFile", "Virtual machine (RamNode)", "Main web server (Not actually QuadFile anymore)", "2 vCores","256MB", "120 GB", "Ubuntu 14.04", "Pay-as-you-go"));
+array_push($servers, new server("lolicon", "Virtual Machine (RamNode)", "Development environment", "1 vCore", "128MB","80 GB", "Ubuntu 14.04", "1 TB"));
+array_push($servers, new server( "install", "Virtual Machine (Vultr)", "Virtual Machine (Vultr)", "Seedbox / Bittorrent Sync", "1 vCore","1 GB", "320 GB", "Ubuntu 12.04 LTS", "2 TB"));
+array_push($servers, new server( $name = "LB-us1",$type = "Virtual Machine (DigitalOcean)",	$usage = "Load balancer for openings.moe",$cpu = "1 vCore",	$ram = "512 MB",	$storage = "20 GB SSD", $os = "Ubuntu 14.04 LTS", $bandwidth = "1 TB"));
+array_push($servers, new server( $name = "LB-us1",$type = "Virtual Machine (DigitalOcean)",	$usage = "Load balancer for openings.moe",$cpu = "1 vCore",	$ram = "512 MB", $storage = "20 GB SSD", $os = "Ubuntu 14.04 LTS", $bandwidth = "1 TB"));
+array_push($servers, new server( $name = "LB-eu1",$type = "Virtual Machine (DigitalOcean)",	$usage = "Load balancer for openings.moe",$cpu = "1 vCore",	$ram = "512 MB",	$storage = "20 GB SSD",  $os = "Ubuntu 14.04 LTS",	$bandwidth = "1 TB"));
+array_push($servers, new server( $name = "AO-main",	$type = "Virtual Machine (DigitalOcean)",	$usage = "openings.moe",	$cpu = "1 vCore",	$ram = "1 GB",$storage = "30 GB SSD", $os = "Ubuntu 14.04 LTS",	$bandwidth = "2 TB"));
+array_push($servers, new server( $name = "spice",	$type = "Physical machine",$usage = "Unused, former test server",	$cpu = "1 Core (Hyperthreaded)",	$ram = "2 GB",$storage = "16 GB SSD + 80 GB HDD", $os = "Arch Linux",	$bandwidth = "No cap"));
+array_push($servers, new server( $name = "win2k",	$type = "Physical machine",$usage = "Unused, former storage server",$cpu = "1 Core",$ram = "128 MB",$storage = "80 GB HDD", $os = "None",$bandwidth = "No cap"));
+
+
+
 
 // ALL THE MOBILE DEVICES
 $mobiledevices = array (
@@ -328,7 +299,7 @@ $others = array (
         	foreach ($servers as $unit) {
         		echo '<div class="unit server"><div class="title">
                     <p class="inline">
-                    	' . $unit["name"] . '
+                    	' . $unit->name . '
                     </p>
                 </div>
                 <div class="details">
@@ -337,7 +308,7 @@ $others = array (
                         	Type:
                         </p>
                         <p class="inline">
-                        	' . $unit["type"] . '
+                        	' . $unit->type . '
                         </p>
                     </div>
                     <div class="detail">
@@ -345,7 +316,7 @@ $others = array (
                         	Usage:
                         </p>
                         <p class="inline">
-                        	' . $unit["usage"] . '
+                        	' . $unit->usage . '
                         </p>
                     </div>
                     <div class="detail">
@@ -353,7 +324,7 @@ $others = array (
                         	CPU:
                         </p>
                         <p class="inline">
-                        	' . $unit["cpu"] . '
+                        	' . $unit->cpu . '
                         </p>
                     </div>
                     <div class="detail">
@@ -361,7 +332,7 @@ $others = array (
                         	RAM:
                         </p>
                         <p class="inline">
-                        	' . $unit["ram"] . '
+                        	' . $unit->ram . '
                         </p>
                     </div>
                     <div class="detail">
@@ -369,7 +340,7 @@ $others = array (
                         	Storage:
                         </p>
                         <p class="inline">
-                        	' . $unit["storage"] . '
+                        	' . $unit->storage . '
                         </p>
                     </div>
                     <div class="detail">
@@ -377,7 +348,7 @@ $others = array (
                             OS:
                         </p>
                         <p class="inline">
-                            ' . $unit["os"] . '
+                            ' . $unit->os . '
                         </p>
                     </div>
                     <div class="detail">
@@ -385,7 +356,7 @@ $others = array (
                         	Bandwidth (Monthly):
                         </p>
                         <p class="inline">
-                        	' . $unit["bandwidth"] . '
+                        	' . $unit->bandwidth . '
                         </p>
                     </div>
                 </div>
