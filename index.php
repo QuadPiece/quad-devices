@@ -21,7 +21,7 @@ class computer
     public $os = "";
     public $bandwidth = "";
 
-    public function __construct($_name,$_type,$_usage,$_cpu,$_ram,$_gpu,$_storage,$_os,$_bandwidth)
+    public function __construct($_name,$_type,$_usage,$_cpu,$_ram,$_gpu,$_storage,$_os)
     {
         $this->name = $_name;
         $this->type = $_type;
@@ -31,7 +31,6 @@ class computer
         $this->gpu = $_gpu;
         $this->storage = $_storage;
         $this->os = $_os;
-        $this->bandwidth = $_bandwidth;
    
     }
 }
