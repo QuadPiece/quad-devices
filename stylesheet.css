@@ -1,0 +1,117 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Imports */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+/* Basics*/
+html, body, p, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-family: "Open Sans", sans-serif;
+}
+
+body {
+	padding-top: 10px;
+	padding-left: 10px
+}
+
+body {
+	background-color: #ccc;
+}
+
+/* Layout */
+
+.column {
+	display: inline-block;
+	overflow: scroll-y;
+	width: 18%;
+		min-width: 300px;
+	height: 100%;
+	padding: 10px;
+	vertical-align:top;
+}
+
+.legend {
+	width: 120px;
+	margin: 10px;
+}
+
+.unit {
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 5px;
+	box-shadow: 0px 0px 1px #111;
+}
+
+.legend .unit {
+	box-shadow: none;
+}
+
+.legend .unit {
+	margin: 0;
+}
+
+.inline {
+	display: inline-block;
+}
+
+.title {
+	font-size: 16pt;
+	margin-bottom: 5px;
+}
+
+.detail {
+	margin-bottom: 2px;
+}
+
+.detail-type {
+	opacity: 0.5;
+	margin-right: 5px;
+}
+
+/* Unit types */
+
+.server {
+	background-color: #f44336;
+	color: #fff;
+}
+
+.server .title {
+	border-bottom: solid 1px #fff;
+}
+
+.computer {
+	background-color: #8bc34a;
+	color: #111;
+}
+
+.computer .title {
+	border-bottom: solid 1px #111;
+}
+
+.mobile {
+	background-color: #ffeb3b;
+	color: #111;
+}
+
+.mobile .title {
+	border-bottom: solid 1px #111;
+}
+
+.console {
+	background-color: #9c27b0;
+	color: #fff;
+}
+
+.console .title {
+	border-bottom: solid 1px #fff;
+}
+
+.other {
+	background-color: #212121;
+	color: #fff;
+}
+
+.other .title {
+	border-bottom: solid 1px #fff;
+}
